@@ -52,4 +52,33 @@ describe('<Stepper>', () => {
     cy.get(counterSelector).should('have.text', '99')
   })
 
+  it('clicking + fires a change event with the incremented value', () => {
+    // Arrange
+    const onChangeSpy = cy.spy().as('onChangeSpy')
+    cy.mount(Stepper, { props: { onChange: onChangeSpy } })
+    // Act
+    cy.get(incrementSelector).click()
+    // Assert
+    cy.get('@onChangeSpy').should('have.been.calledWith', 1)
+  })
+  
+  it('With emitted', () => {  
+    cy.mount(Stepper, { props: { initial: 100 } })
+    cy.get(incrementSelector).click()
+    cy.get('@vue').should((wrapper) => {
+      expect(wrapper.emitted('change')).to.have.length
+      expect(wrapper.emitted('change')[0][0]).to.equal(101)
+    })  
+  })  
+  
+  it('With spies', () => {   
+    const onChangeSpy = cy.spy().as('onChangeSpy')     
+    cy.mount(Stepper, { props: { initial: 100, onChange: onChangeSpy } })
+
+    cy.get(incrementSelector).click()
+    cy.get('@onChangeSpy').should('have.been.calledWith', 101)  
+  })  
+
 })
+
+//cy.mount(Stepper).doStuff().get('@vue') // The subject is now the Vue Wrapper
