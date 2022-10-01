@@ -24,7 +24,18 @@ import '@/assets/main.css'
 
 import { mount } from 'cypress/vue'
 
-Cypress.Commands.add('mount', mount)
+// Cypress.Commands.add('mount', mount)
 
 // Example use:
 // cy.mount(MyComponent)
+
+Cypress.Commands.add('mount', (...args) => {
+  return mount(...args).then((wrapper) => {
+    return cy.wrap(wrapper).as('vue')
+  })
+})
+
+// the "@vue" alias will now work anywhere
+// after you've mounted your component
+//cy.mount(Stepper).doStuff().get('@vue') // The subject is now the Vue Wrapper
+
