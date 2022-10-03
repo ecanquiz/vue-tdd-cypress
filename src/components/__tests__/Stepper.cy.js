@@ -74,7 +74,6 @@ describe('<Stepper>', () => {
   it('With spies', () => {   
     const onChangeSpy = cy.spy().as('onChangeSpy')     
     cy.mount(Stepper, { props: { initial: 100, onChange: onChangeSpy } })
-
     cy.get(incrementSelector).click()
     cy.get('@onChangeSpy').should('have.been.calledWith', 101)  
   })  

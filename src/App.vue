@@ -1,10 +1,12 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import Modal from './components/Modal.vue'
 </script>
 
 <template>
-  <header>
+  <Modal>Modal's body content (passed in via slot)</Modal>
+  <!--header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
@@ -14,7 +16,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <TheWelcome />
-  </main>
+  </main-->
 </template>
 
 <style scoped>
