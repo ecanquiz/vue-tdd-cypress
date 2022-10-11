@@ -46,5 +46,5 @@ describe('<Modal>', () => {
       // Repeat the assertion to make sure the text
       // is no longer visible
       .get(modalSelector).should('not.have.contain', 'Content')
-  })  
+  })
 })

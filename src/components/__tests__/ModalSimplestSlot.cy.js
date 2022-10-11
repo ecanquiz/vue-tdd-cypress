@@ -1,6 +1,6 @@
 import Modal from '../ModalSimple.vue'
 
-describe('<Modal>', () => {
+describe('<Modal>', () => {  
   const modalSelector = '.overlay'
   const closeButtonSelector = 'button'
   
@@ -20,6 +20,6 @@ describe('<Modal>', () => {
       // Repeat the assertion to make sure the text
       // is no longer visible
       .get(modalSelector)      
-      .should('not.have.text', 'Content')
+      .should('not.have.contain', 'Content')
   })
 })

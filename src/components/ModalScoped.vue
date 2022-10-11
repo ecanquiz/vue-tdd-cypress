@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 const show = ref(true)
+const onClose = () => show.value = !show.value
 </script>
 
 <template>
@@ -16,9 +17,7 @@ const show = ref(true)
       </div>
       <hr/>
       <div class="footer">
-        <slot name="footer" :close="onClose">
-          <button @click="show = !show">Close</button>
-        </slot>
+        <slot name="footer" :close="onClose" />
       </div>
     </div>
   </div>

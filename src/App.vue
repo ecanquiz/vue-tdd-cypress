@@ -2,6 +2,8 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import Modal from './components/ModalScoped.vue'
+//import Modal from './components/ModalSimple.vue'
+
 </script>
 
 <template>
